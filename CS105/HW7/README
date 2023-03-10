@@ -1,0 +1,27 @@
+README
+CS 105 - HW7
+Type Systems
+
+Jake Seidman & Daniel Alderman
+Pair Assignment
+
+Extending impcore Typechecker
+
+We extended the typechecking in impcore to include typechecking for arrays.
+We added to typechecking rules AMAKE, AAT, APUT, and ASIZE. We used pattern
+matching and case analysis on the expression given the globals, functions, and
+formals environments.
+
+
+uScheme Typechecker
+
+We implementing typed uScheme type checking using ML. We wrote 2 functions to
+do this. The first, typeof, takes in an expression, a kind environment, and a
+type environment. We used pattern matching to determine what form the expression
+takes, and used the rules of typed uScheme combined with the state of the
+environment to determine the type of the expression. For more complicated
+expressions, typeof recursively calls itself (or its helper fucntion ty) to
+break the expression down in to smaller pieces. The second function, typdef
+takes in a definition and the same environments. Again, we used pattern matching
+and the rules of uscheme to both update the type environment, and determine the
+type of the definition.

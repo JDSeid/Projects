@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="jrails.JRouterTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-11-22T20:57:13" hostname="Jakes-MacBook-Pro-3.local" time="0.058">
+  <properties/>
+  <testcase name="addRoute" classname="jrails.JRouterTest" time="0.058"/>
+  <system-out><![CDATA[Adding route with verb: GET and path: /
+Searching for route with verb: GET and path: /
+Curr route has verb: GET and path: /
+Route found
+Adding route with verb: GET and path: /show
+Searching for route with verb: GET and path: /show
+Curr route has verb: GET and path: /show
+Route found
+Searching for id: 1
+Current line is : 1, Title 1, Author 1, 1
+Columns: [Title 1, Author 1, 1]
+<a href="/">Back</a>
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

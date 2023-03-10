@@ -1,0 +1,108 @@
+README
+
+HW6 UM, Comp40 Tufts
+Addison Mirliani and Jacob Seidman
+4.19.21
+
+Acknowledgements
+    We went to office hours to get help finding the length of an array
+
+We have correctly implemented the following files to the best of our knowledge:
+    um.c
+    memory.c
+    memory.h
+    commands.c
+    commands.h
+
+Departures from our initial design
+    Instead of looping through the sequence of segments to find an unmapped
+    index, we added a stack of segment IDs to keep track of IDs that have
+    been unmapped.
+
+Architecture/Modules
+    Memory
+        - Registers
+            Represented as an array of uint32_t of length 8
+        - Segments
+            Implemented as a Hanson Sequence of arrays, where each array is a 
+            segment. Each segment is an array of uint32_t 
+        - IDs
+            A stack of IDs holds the information of the available indices in
+            the sequence of segments
+        - Secrets
+            The memory module has direct access to the registers and segments.
+        - Interactions
+            Does not call functions from any other modules
+    Commands
+        - Command loop
+            Repeatedly gets the next command word from segment 0 and runs the 
+            corresponding instruction.
+        - Secrets
+            Keeps track of which commands correspond to which opCode
+        - Interactions
+            Retrieves command words from the memory module. Uses the bitpack 
+            interface to unpack the command instructions Uses the memory 
+            interface to execute the corresponding command.
+
+Time to execute 50 million instructions
+    7,738.5 seconds. We ran out UM with midmark. We used /usr/bin/time to
+    determine how long it took for our program to run. We then use umdump on
+    midmark, which told use how many commands midmark ran. This allowed us to
+    find the time taken by command. We then multiplied this by 50 million to
+    estimate the time taken to run 50 million instructions.
+
+UM unit tests
+    halt.um ->  tests the halt command by immediately running the 
+                halt instruction
+    halt-verbose.um -> test the halt command tests the halt command by 
+                immediately running the halt instruction followed by a series of
+                other commands, which should not execute as the um was halted.
+    load-value -> tests the load value command by loading in the value "A" and
+                  then outputting it
+    add.um -> tests the addition command by loading values, adding them
+            together, and finally outputting the result
+    overflow.um -> tests that the addition command will correct take the modulus
+                 of a sum which exceeds 2^32. It tests this by adding two
+                 numbers with a sum greater than 2^32, and then printing the
+                 output.
+    divide.um -> tests that the division command works correctly by trying some
+                example divisions and making sure their output is correct.
+    input.um -> tests the input command by accepting two characters for input,
+                and then outputting them
+    EOF.um -> tests that the input command correctly loads ~0 into a given
+              register when no character is provided for input. It does this by
+              calling an input command while the input file provided is empty.
+              The value stored into the register is then offset into a range
+              than can be outputed, and then printed.
+    cmov.um -> tests that the conditional move command does nothing if register
+               c is zero, and if register c is not zero then it moves the value
+               of register b into register a
+    nand.um -> tests the nand command by nanding two numbers together, 
+                offsetting the result to a printable output, and then printing
+                it.
+    map.um -> Tests that the map command correctly maps segments to the correct
+            indices. This test maps three segments, then shifts their indices
+            to a printable range and outputs them. 
+    unmap.um -> tests the the unmap command correctly unmaps segments in the
+                expected loacation and that it stores these 32-bit identifiers
+                to be reused. When map is called after unmap, we output the
+                location of where these segments were stored and check that
+                they were reused from the unmapped segments
+    segmented.um -> Tests the segmented store and load commands by mapping a
+                    segment, storing multiple values in it, and then loads
+                    and prints these values
+                
+    load-program.um -> tests that the load program function works correctly by
+                       mapping a segment and storing commands in that segment
+                       (we store a load value command, an output command, and
+                       a halt command). We then call the load program function
+                       on this segment and set the counter position to zero so
+                       it loads this program, executes it, and does not print
+                       out the output that comes after our call to load program
+    longer-input.um -> tests the input command by accepting ten characters 
+                for input, and then outputting them
+
+Hours spent
+    Analyzing the assignment: 2 hours
+    Preparing our design: 6.5 hours
+    Solving the problems after your analysis: 14.5 hours

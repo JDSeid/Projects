@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="jrails.HtmlTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2021-11-22T20:57:13" hostname="Jakes-MacBook-Pro-3.local" time="0.012">
+  <properties/>
+  <testcase name="empty" classname="jrails.HtmlTest" time="0.01"/>
+  <testcase name="pTest" classname="jrails.HtmlTest" time="0.001"/>
+  <system-out><![CDATA[HTML test passed
+<p>Hello</p>
+<input type="submit" value="v18"/>
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

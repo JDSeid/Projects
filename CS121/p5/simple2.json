@@ -1,0 +1,10 @@
+{
+    "lines": {
+      "blue": [ "Bowdoin", "Government Center", "State", "Aquarium",
+        "Maverick", "Airport" ]
+    },
+    "trips": {
+      "Carol": [ "Maverick", "Government Center", "Tufts" ]
+    }
+  }
+  

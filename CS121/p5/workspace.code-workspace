@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"name": "COMP121",
+			"path": ".."
+		},
+		{
+			"path": "../../DraftLab"
+		}
+	],
+	"settings": {
+		"java.project.sourcePaths": [
+			"p3"
+		]
+	}
+}

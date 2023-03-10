@@ -1,0 +1,67 @@
+;; literal tests
+
+;; checking literal int type
+(check-principal-type 3 int)
+;; checking literal bool type
+(check-principal-type #t bool)
+;; checking literal sym type
+(check-principal-type 'hello sym)
+;; checking empty list type
+(check-principal-type '() (forall ['a] (list 'a)))
+;; checking int list
+(check-principal-type '(1 2 3) (list int))
+;; checking cons with empty list
+(check-principal-type (cons 1 '()) (list int))
+
+;; if tests
+
+;; checking if w/ int
+(check-principal-type (if #f 1 0) int)
+;; checking if w/ bool
+(check-principal-type (if #f #f #t) bool)
+;; checking if w/ error where e1 is not a bool
+(check-type-error (if 5 #f #t))
+;; checking if w/ error where e2 and e3 do not have same type
+(check-type-error (if #f #f 5))
+
+;; begin tests
+
+;; checking begin where it is a bool
+(check-principal-type (begin 5 10 #f) bool)
+;; checking begin where it is an int
+(check-principal-type (begin 5 #f 1) int)
+;; checking begin w/ error where there is an undefined val in the body
+(check-type-error (begin j #f 1))
+(check-principal-type (begin) unit)
+
+
+;; lambda tests
+
+;; checking lambda with one polymorphic variable
+(check-principal-type (lambda (y) y) (forall ['a] ('a -> 'a)))
+;; checking lambda with two polymorphic variables of the same type
+(check-principal-type (lambda (y x) (= x y))  (forall ['a] ('a 'a -> bool)))
+;; checking lambda with two polymorphic variables of possible different types
+(check-principal-type (lambda (y x) y)  (forall ['a 'b] ('a 'b -> 'a)))
+;; checking lambda where it is an int int -> int
+(check-principal-type (lambda (y x) (+ x y)) (int int -> int))
+;; checking lambda where it is an int int -> bool
+(check-principal-type (lambda (y x) (> x y)) (int int -> bool))
+;; checking lambda w/ error where undefined val is used in the body
+(check-type-error (lambda (y x) (> z y)))
+;; checking lambda w/ error where y is used as both a bool and an int
+(check-type-error (lambda (y) (and (> 5 y) y)))
+
+
+;; let tests
+
+;; checking simple let where it is an int
+(check-principal-type (let ((a 5)) a) int)
+;; checking simple let where it is a bool
+(check-principal-type (let ((b #f)) b) bool)
+;; checking more complex let where it is an int
+(check-principal-type (let ((a 6) (b 5)) (+ a b)) int)
+;; checking let w/ error where it uses undefined val in body
+(check-type-error (let ((a 5)) b))
+;; checking let w/ error where its body performs invalid operation
+(check-type-error (let ((a 6) (b #f)) (+ a b)))

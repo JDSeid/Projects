@@ -1,0 +1,56 @@
+(Adding route with verb: GET and path: /
+/Searching for route with verb: GET and path: /
+%Curr route has verb: GET and path: /
+Route found
+,Adding route with verb: GET and path: /show
+3Searching for route with verb: GET and path: /show
+)Curr route has verb: GET and path: /show
+Route found
+Searching for id: 1
+*Current line is : 1, Title 1, Author 1, 1
+ Columns: [Title 1, Author 1, 1]
+<a href="/">Back</a>
+HTML test passed
+<p>Hello</p>
+#<input type="submit" value="v18"/>
+	
+ Columns: [Title 1, Author 1, 1]
+	
+ Columns: [Title 2, Author 2, 2]
+	
+ Columns: [Title 1, Author 1, 1]
+	
+ Columns: [Title 2, Author 2, 2]
+	
+Title 1
+	
+	Author 1
+	
+1
+	
+Title 2
+	
+	Author 2
+	
+2
+	
+Title 1
+	
+	Author 1
+	
+1
+	
+Title 2
+	
+	Author 2
+	
+2
+	
+!Reseting class: class books.Book
+	Searching for id: 1
+	*Current line is : 1, Title 1, Author 1, 1
+	 Columns: [Title 1, Author 1, 1]
+	Searching for id: 1
+	*Current line is : 1, Title 1, Author 1, 1
+	 Columns: [Title 1, Author 1, 1]
+	Find assert pass

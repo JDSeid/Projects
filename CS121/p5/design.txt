@@ -1,0 +1,20 @@
+# Write down your multi-threading designs here!
+
+I have one thread running for each train line, and one for each passenger.
+The main thread starts all of the passenger threads, and then all of the 
+train threads.
+
+The passenger thread checks if the passenger is already on a train. 
+
+If it is, it holds the lock of the passenger's next destination. Until the 
+passenger arrives at their destination, the thread awaits. Once the destination
+is reached, the train thread signals the passenger thread to wake up, and it 
+boards the train.
+
+If the passenger is not on a train, the same is true, except that the passenger
+waits until their correct train reaches their current station.
+
+For the train threads, the thread will awaken all passenger threads for passengers
+that need to board/deboard. It then will sleep until its next station does not 
+have a train, at which point it will move to that station.
+

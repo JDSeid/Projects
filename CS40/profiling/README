@@ -1,0 +1,30 @@
+README
+
+HW6 UM, Comp40 Tufts
+Addison Mirliani and Jacob Seidman
+4.26.21
+
+Acknowledgements
+    We did not receive any outside help on this assignment
+
+Time spent in our program
+    One hot spot in our program that takes up a lot of the routine that 
+    retrieves, un-bitpacks, and runs the commands. Looking at the assembly code,
+    this routine fetches and stores global variables, such as the counter and
+    a pointer to segment0 multiple times. It would be faster to somehow store
+    these variables each in their own register, and access and change the value
+    in the register, rather than fetching them from their global address each 
+    time.
+    
+    Another hot spot in our program is Seq_get. We call this function often and
+    it takes about 22.34% of our program time. One way we could modify assembly
+    code to make this proccess faster would be to modify the Hanson
+    implementation of Seq_get. In the Hanson implementation, there are
+    assertions that check whether the parameters and sequence are valid. By
+    removing these assertions, we would speed up the program. They aren't
+    necessary in our um functionality because user error could result in a
+    failure mode and does not need to be handled with an assertion.
+
+Hours spent
+    Analyzing the problems posed in the assignment: 1 hour
+    Solving the problems after your analysis: 8 hours

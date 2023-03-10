@@ -1,0 +1,34 @@
+
+Collaboration
+
+I didn't collaborate with anyone.
+
+
+
+Problems solved
+
+I solved all problems on the homework:
+
+- mynull
+- reverse
+- minlist
+- zip
+- pairfoldrEq
+- concat
+- numersSx
+- flattenSyms
+- improving closures
+
+
+
+Improvement
+
+Here are the  runtimes I obtained used the provided scripts:
+
+mlscheme:  5.04s
+mlscheme-improved: 1.39s
+uscheme-C-interpreter: 24.95
+
+By improving the method in which closures are captured, my implementation run
+in only 28% of the time as the original implementation, and less than 5% of the
+ time as the inefficient C interpreter

@@ -1,0 +1,47 @@
+(define (array int) array-make-int ([length : int] [init_val : int])
+    (make-array length init_val)
+)
+(check-function-type array-make-int (int int -> (array int)))
+
+
+(define (array bool) array-make-bool ([length : int] [init_val : bool])
+    (make-array length init_val)
+)
+(check-function-type array-make-bool (int bool -> (array bool)))
+
+
+
+
+(define int array-size-int ([arr : (array int)] )
+    (array-size  arr)
+)
+(check-function-type array-size-int ((array int) -> int))
+
+
+
+(define int array-size-bool ([arr : (array bool)] )
+    (array-size  arr)
+)
+(check-function-type array-size-bool ((array bool) -> int))
+
+
+(define int array-at-int ([arr : (array int)] [index : int] )
+    (array-at arr index)
+)
+(check-function-type array-at-int ((array int) int -> int))
+
+(define bool array-at-bool ([arr : (array bool)] [index : int] )
+    (array-at arr index)
+)
+(check-function-type array-at-bool ((array bool) int -> bool))
+
+
+(define int array-put-int ([arr : (array int)] [index : int] [ele : int])
+    (array-put arr index ele)
+)
+(check-function-type array-put-int ((array int) int int -> int))
+
+(define bool array-put-bool ([arr : (array bool)] [index : int] [ele : bool])
+    (array-put arr index ele)
+)
+(check-function-type array-put-bool ((array bool) int bool -> bool))

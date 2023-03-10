@@ -1,0 +1,21 @@
+README
+CS 105 - HW5 - Continuations
+
+Name: Jake Seidman
+
+Problems I solved:
+
+- New definition for val
+- list-of?
+- formula?
+- eval-formula
+- SAT solver tests
+- SAT solver
+
+
+Others with whom you have collaborated or discussed the assignment:
+I have not discussed the assignment with anyone
+
+
+Any comments or feedback for course staff:
+None

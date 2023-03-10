@@ -1,0 +1,43 @@
+Group Members
+
+Jake Seidman: jseidm01
+Natinael Tilahun: Ntilah01
+
+
+Acknowledgements:
+
+We received help from the TAs during office hours, and through Piazza posts.
+
+
+
+Architecture:
+
+Our files are grouped such that functions that do the inverse operations are
+put together.
+
+Conversion.c
+Handles conversions between RGB pixels and video pixels.
+
+Quantization.c
+Handles the conversions between pb, pr, and y to avg pb, avg pr, a, b, c,and d.
+Handles quantization and unquantization of these values
+
+Packing.c
+Handles the unpacking, packing and printing of values into 32 bit words
+
+compress40.c
+Reads in from the command the line or stdin. Acts a second driver file which
+calls the compression and decompression functions.
+
+
+
+What has been correctly implemented:
+
+Our program is able to successfully compress and decompress a ppm image.
+When comparing the original image to an image that has been compressed and
+decompressed, ppmdiff outputs a very low difference rate (< 2%).
+
+
+
+Time spent analyzing the problem: ~8 hours
+Time spent solving the problem: ~20 hours

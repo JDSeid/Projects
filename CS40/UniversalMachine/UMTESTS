@@ -1,0 +1,15 @@
+halt.um
+halt-verbose.um
+load-value.um
+add.um
+overflow.um
+divide.um
+input.um
+EOF.um
+cmov.um
+nand.um
+map.um
+unmap.um
+segmented.um
+load-program.um
+longer-input.um
